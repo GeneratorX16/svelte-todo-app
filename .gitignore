@@ -1,0 +1,43 @@
+.DS_Store
+
+# Dependency directories
+node_modules/
+
+# Build output directories
+public/build/
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local environment settings
+.env
+.env.local
+.env.*.local
+
+# SvelteKit specific
+.svelte-kit/
+
+# Vite specific
+.vite/
+.vitepress/
+
+# Editor-specific
+.vscode/
+.idea/
+
+
+# Cypress directories
+svelte-tests/cypress/videos/
+svelte-tests/cypress/screenshots/
+svelte-tests/cypress/node_modules/
+
+# Cypress config
+svelte-tests/cypress.env.json
+
+# Cypress cache
+svelte-tests/.cache/
+
