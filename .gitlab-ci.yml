@@ -7,14 +7,11 @@ install-dependencies:
     - ls
     - pwd
     - npm install
-    - cd svelte-tests
-    - npm install
-    - cd ..
+    - cd svelte-tests && npm install
 
 run_tests:
   before_script:
-    - PORT=8080 npm run dev
-    - sleep 20
+    - PORT=8080 npm run dev &
+    - sleep 10
   script:
-    - cd svelte-tests
-    - npx cypress run --e2e
+    - cd svelte-tests && npx cypress run --e2e 
