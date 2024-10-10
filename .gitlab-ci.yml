@@ -40,7 +40,7 @@ run_tests:
   artifacts:
     when: always
     paths:
-      - cypress/results  # Save test results
-      - cypress/screenshots  # Save screenshots in case of failure
-      - cypress/videos  # Save video recordings of tests
+      - ./svelte-tests/cypress/results  # Save test results
+      - ./svelte-tests/cypress/screenshots  # Save screenshots in case of failure
+      - ./svelte-tests/cypress/videos  # Save video recordings of tests
     expire_in: 1 week  # Artifacts will be available for 1 week
