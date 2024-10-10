@@ -14,6 +14,9 @@ install-dependencies:
       - ./svelte-tests/node_modules/
       - ./svelte-tests/
 
+variables:
+  TZ: "Asia/Kolkata"  
+  
 run_tests:
   image: node:latest
   before_script:
