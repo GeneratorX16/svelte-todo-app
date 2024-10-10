@@ -23,6 +23,7 @@ run_tests:
     - PORT=8080 npm run dev &  # Run the app in the background
     - sleep 10
   script:
+    - cd svelte-tests
     - npm ci
     - npm start &
     - npm run e2e
