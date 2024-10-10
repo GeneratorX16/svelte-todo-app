@@ -44,6 +44,3 @@ run_tests:
       - cypress/screenshots  # Save screenshots in case of failure
       - cypress/videos  # Save video recordings of tests
     expire_in: 1 week  # Artifacts will be available for 1 week
-  reports:
-    junit:
-      - cypress/results/*.xml
