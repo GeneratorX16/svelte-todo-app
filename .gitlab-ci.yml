@@ -10,13 +10,18 @@ install-dependencies:
     - cd svelte-tests && npm install
   artifacts:
     paths:
-      - node_modules/
-      - svelte-tests/node_modules/
-      - svelte-tests/
+      - ./node_modules/
+      - ./svelte-tests/node_modules/
+      - ./svelte-tests/
 
 run_tests:
   image: node:22.4-alpine
   before_script:
+    - npm --version  # Ensure npm is installed
+    - npx --version  # Ensure npx is installed
+    - cd svelte-tests
+    - npm run dev &  # Run the app in the background
+    - sleep 10  
     - PORT=8080 npm run dev &
     - sleep 10
   script:
