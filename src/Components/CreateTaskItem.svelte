@@ -27,14 +27,14 @@
 
 <div>
   <form on:submit|preventDefault={submitForm}>
-    <label>Title:</label>
-    <input bind:value={titleInput} style="border-color: {titleColor}; border-width: 2px;" on:input={fieldValidation}>
+    <label for="title-input">Title:</label>
+    <input name = "title-input" bind:value={titleInput} style="border-color: {titleColor}; border-width: 2px;" on:input={fieldValidation}>
 
-    <label>Description:</label>
-    <textarea bind:value={dInput} style="border-color: {dColor}; border-width: 2px;" on:input={fieldValidation}></textarea>
+    <label for="description-input">Description:</label>
+    <textarea name = "description-input" bind:value={dInput} style="border-color: {dColor}; border-width: 2px;" on:input={fieldValidation}></textarea>
 
-    <label>Deadline:</label>
-    <input type="datetime-local" bind:value={endDateInput}>
+    <label for="titdeadlinele-input">Deadline:</label>
+    <input name = "deadline-input" type="datetime-local" bind:value={endDateInput}>
 
     <button type="submit">Create</button> 
     <button type="button" on:click={closeBox}>Cancel</button>
