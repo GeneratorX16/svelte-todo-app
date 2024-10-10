@@ -1,0 +1,17 @@
+# run_tests:
+#     image: node:22.4-alpine
+#     script:
+#         - echo "Hello World"
+    
+test_job1:
+    stage: test
+    script:
+        - echo "This is running test_job1"
+
+test-job2:
+  stage: test
+  script:
+    - echo "This job tests something, but takes more time than test-job1."
+    - echo "After the echo commands complete, it runs the sleep command for 20 seconds"
+    - echo "which simulates a test that runs 20 seconds longer than test-job1"
+    - sleep 20
