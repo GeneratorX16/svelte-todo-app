@@ -1,12 +1,12 @@
-# run_tests:
-#     image: node:22.4-alpine
-#     script:
-#         - echo "Hello World"
-    
-test_job1:
-    stage: test
-    script:
-        - echo "This is running test_job1"
+build-job:
+  stage: build
+  script:
+    - echo "Hello, $GITLAB_USER_LOGIN!"
+
+test-job1:
+  stage: test
+  script:
+    - echo "This job tests something"
 
 test-job2:
   stage: test
