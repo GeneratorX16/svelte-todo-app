@@ -17,7 +17,10 @@ install-dependencies:
 run_tests:
   image: node:latest
   before_script:
+    - apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb
     - apt-get update
+    - Xvfb :99 -screen 0 1280x1024x16 &  # Start virtual framebuffer for headless testing
+    - export DISPLAY=:99  # Set the display for Xvfb
     - npm --version  # Ensure npm is installed
     - npx --version  # Ensure npx is installed
     - PORT=8080 npm run dev &  # Run the app in the background
