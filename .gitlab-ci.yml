@@ -1,5 +1,5 @@
 install-dependencies:
-  image: node:22.4  # Using a standard Ubuntu-based Node image
+  image: node:22.4-bullseye-slim  # Using a standard Ubuntu-based Node image
   before_script:
     - apt-get update
     - apt-get install -y tree xvfb  # Install necessary dependencies
@@ -15,21 +15,10 @@ install-dependencies:
       - ./svelte-tests/
 
 run_tests:
-  image: node:22.4  # Ubuntu-based Node image
+  image: node:22.4-bullseye-slim  # Ubuntu-based Node image
   before_script:
     - apt-get update
-    - apt-get install -y xvfb \
-        libgtk-3-0 \
-        libnotify-dev \
-        libgconf-2-4 \
-        libnss3 \
-        libxss1 \
-        libasound2 \
-        libxtst6 \
-        xauth \
-        dbus \
-        ttf-freefont \
-        ca-certificates
+    - apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb
     - npm install
     - cd svelte-tests && npm install
     - Xvfb :99 -screen 0 1280x1024x16 &  # Start xvfb
