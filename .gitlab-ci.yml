@@ -1,37 +1,37 @@
-# install-dependencies:
-#   image: node:22.4-alpine
-#   before_script:
-#     - apk update
-#     - apk add tree
-#     - apk add xvfb
-#   script:
-#     - ls
-#     - pwd
-#     - npm install
-#     - cd svelte-tests && npm install
-#   artifacts:
-#     paths:
-#       - ./node_modules/
-#       - ./svelte-tests/node_modules/
-#       - ./svelte-tests/
-
-run_tests:
-  image: node:22.4-alpine
+install-dependencies:
+  image: node:22.4  # Using a standard Ubuntu-based Node image
   before_script:
-    - apk update
+    - apt-get update
+    - apt-get install -y tree xvfb  # Install necessary dependencies
+  script:
+    - ls
+    - pwd
     - npm install
     - cd svelte-tests && npm install
-    - apk add xvfb libgtk-3.0 gcompat \
-        nss \
-        harfbuzz \
-        ca-certificates \
-        ttf-freefont \
-        ffmpeg \
+  artifacts:
+    paths:
+      - ./node_modules/
+      - ./svelte-tests/node_modules/
+      - ./svelte-tests/
+
+run_tests:
+  image: node:22.4  # Ubuntu-based Node image
+  before_script:
+    - apt-get update
+    - apt-get install -y xvfb \
+        libgtk-3-0 \
+        libnotify-dev \
+        libgconf-2-4 \
+        libnss3 \
+        libxss1 \
+        libasound2 \
+        libxtst6 \
+        xauth \
         dbus \
-        alsa-lib \
-        eudev \
-        udev
-    - apk add xvfb  # Install xvfb for headless browser
+        ttf-freefont \
+        ca-certificates
+    - npm install
+    - cd svelte-tests && npm install
     - Xvfb :99 -screen 0 1280x1024x16 &  # Start xvfb
     - export DISPLAY=:99  # Set display to use xvfb
     - npm --version  # Ensure npm is installed
@@ -39,6 +39,6 @@ run_tests:
     - PORT=8080 npm run dev &  # Run the app in the background
     - sleep 10
   script:
-    - cd svelte-tests && npx cypress run --e2e 
+    - cd svelte-tests && npx cypress run --e2e
   dependencies:
-    - install-dependencies 
+    - install-dependencies
