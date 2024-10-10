@@ -3,6 +3,7 @@ install-dependencies:
   before_script:
     - apk update
     - apk add tree
+    - apk add xvfb
   script:
     - ls
     - pwd
@@ -17,6 +18,10 @@ install-dependencies:
 run_tests:
   image: node:22.4-alpine
   before_script:
+    - apk update
+    - apk add xvfb  # Install xvfb for headless browser
+    - Xvfb :99 -screen 0 1280x1024x16 &  # Start xvfb
+    - export DISPLAY=:99  # Set display to use xvfb
     - npm --version  # Ensure npm is installed
     - npx --version  # Ensure npx is installed
     - PORT=8080 npm run dev &  # Run the app in the background
