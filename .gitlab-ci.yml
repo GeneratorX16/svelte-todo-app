@@ -35,4 +35,12 @@ run_tests:
   script:
     - cd svelte-tests
     - npm ci
-    - npx cypress run --e2e
+    - npx cypress run --e2e --reporter mocha-junit-reporter --reporter-options mochaFile=cypress/results/test-output-[hash].xml
+
+  artifacts:
+    when: always
+    paths:
+      - cypress/results  # Save test results
+      - cypress/screenshots  # Save screenshots in case of failure
+      - cypress/videos  # Save video recordings of tests
+    expire_in: 1 week  # Artifacts will be available for 1 week
