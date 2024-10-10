@@ -83,6 +83,59 @@ describe('template spec', () => {
     })
   });
 
+  it("Task count change when adding and deleting items", () => {
+    // Create Task 1
+    let randomNumber = Number.parseInt(Math.random()*1000)
+    let title = `This is a test task ${randomNumber}`;
+    let description = `This is a test description of the item ${randomNumber}`;
+    let today = new Date();
+    today.setDate(today.getDate() + 2);
+
+    
+    cy.contains('button', 'Add Task').click();
+
+    cy.get('input').first().type(title);
+    cy.get('textarea').type(description)
+    cy.get('input[type="datetime-local"]').type(today.toISOString().slice(0, 16));
+
+    cy.get('form').submit();
+
+    // Create Task 2
+    randomNumber = Number.parseInt(Math.random()*1000)
+    title = `This is a test task ${randomNumber}`;
+    description = `This is a test description of the item ${randomNumber}`;
+    today = new Date();
+    today.setDate(today.getDate() + 2);
+
+    
+    cy.contains('button', 'Add Task').click();
+
+    cy.get('input').first().type(title);
+    cy.get('textarea').type(description)
+    cy.get('input[type="datetime-local"]').type(today.toISOString().slice(0, 16));
+
+    cy.get('form').submit();
+
+    // Create task 3
+    randomNumber = Number.parseInt(Math.random()*1000)
+    title = `This is a test task ${randomNumber}`;
+    description = `This is a test description of the item ${randomNumber}`;
+    today = new Date();
+    today.setDate(today.getDate() + 2);
+
+    
+    cy.contains('button', 'Add Task').click();
+
+    cy.get('input').first().type(title);
+    cy.get('textarea').type(description)
+    cy.get('input[type="datetime-local"]').type(today.toISOString().slice(0, 16));
+
+    cy.get('form').submit();
+
+    //Make assertions
+    cy.get('#task-count').should('have.text', 'Task Count: 4');
+  })
+
 })
 
 

@@ -31,6 +31,7 @@
 
 <div id="container">
   <button on:click={() => {formPresent = true;}}>Add Task</button>
+  <p id="task-count">Task Count: {tasklist.length}</p>
   <div id="todo-list">
     {#if tasklist.length > 0}
       {#each tasklist as item}
@@ -73,15 +74,14 @@
     cursor: pointer;
   }
 
-  CreateTaskItem {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent backdrop */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  #task-count {
+    background-color: black;
+    color: white;
+    width: 10vw;
+    margin: 10px auto;
+    padding: 5px 5px;
+    border-radius: 20px;
+    font-size: 150%;
+
   }
 </style>

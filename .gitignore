@@ -35,6 +35,7 @@ yarn-error.log*
 svelte-tests/cypress/videos/
 svelte-tests/cypress/screenshots/
 svelte-tests/cypress/node_modules/
+svelte-tests/cypress/results/
 
 # Cypress config
 svelte-tests/cypress.env.json
