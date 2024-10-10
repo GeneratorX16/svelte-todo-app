@@ -8,10 +8,18 @@ install-dependencies:
     - pwd
     - npm install
     - cd svelte-tests && npm install
+  artifacts:
+    paths:
+      - node_modules/
+      - svelte-tests/node_modules/
+      - svelte-tests/
 
 run_tests:
+  image: node:22.4-alpine
   before_script:
     - PORT=8080 npm run dev &
     - sleep 10
   script:
     - cd svelte-tests && npx cypress run --e2e 
+  dependencies:
+    - install-dependencies 
