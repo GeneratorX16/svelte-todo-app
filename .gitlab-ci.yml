@@ -17,6 +17,9 @@ install-dependencies:
 run_tests:
   image: node:latest
   before_script:
+    - npm install
+    - cd svelte-tests/ && npm install
+    - cd ..
     - apt-get update  # Update the package lists
     - apt-get install -y libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb  # Install dependencies
     - Xvfb :99 -screen 0 1280x1024x16 &  # Start virtual framebuffer for headless testing
