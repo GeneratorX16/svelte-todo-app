@@ -19,6 +19,17 @@ run_tests:
   image: node:22.4-alpine
   before_script:
     - apk update
+    - apk add xvfb libgtk-3.0 gcompat \
+        chromium \
+        nss \
+        harfbuzz \
+        ca-certificates \
+        ttf-freefont \
+        ffmpeg \
+        dbus \
+        alsa-lib \
+        eudev \
+        udev
     - apk add xvfb  # Install xvfb for headless browser
     - Xvfb :99 -screen 0 1280x1024x16 &  # Start xvfb
     - export DISPLAY=:99  # Set display to use xvfb
