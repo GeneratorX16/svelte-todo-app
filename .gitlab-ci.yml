@@ -4,5 +4,4 @@ install-dependencies:
     - apk update
     - apk add tree
   script:
-    - pwd
-    - tree
+    - npm install
