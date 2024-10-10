@@ -20,7 +20,6 @@ run_tests:
   before_script:
     - apk update
     - apk add xvfb libgtk-3.0 gcompat \
-        chromium \
         nss \
         harfbuzz \
         ca-certificates \
