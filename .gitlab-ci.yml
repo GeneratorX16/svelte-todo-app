@@ -1,24 +1,26 @@
-install-dependencies:
-  image: node:22.4-alpine
-  before_script:
-    - apk update
-    - apk add tree
-    - apk add xvfb
-  script:
-    - ls
-    - pwd
-    - npm install
-    - cd svelte-tests && npm install
-  artifacts:
-    paths:
-      - ./node_modules/
-      - ./svelte-tests/node_modules/
-      - ./svelte-tests/
+# install-dependencies:
+#   image: node:22.4-alpine
+#   before_script:
+#     - apk update
+#     - apk add tree
+#     - apk add xvfb
+#   script:
+#     - ls
+#     - pwd
+#     - npm install
+#     - cd svelte-tests && npm install
+#   artifacts:
+#     paths:
+#       - ./node_modules/
+#       - ./svelte-tests/node_modules/
+#       - ./svelte-tests/
 
 run_tests:
   image: node:22.4-alpine
   before_script:
     - apk update
+    - npm install
+    - cd svelte-tests && npm install
     - apk add xvfb libgtk-3.0 gcompat \
         nss \
         harfbuzz \
