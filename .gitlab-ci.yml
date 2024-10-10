@@ -25,8 +25,7 @@ run_tests:
   script:
     - cd svelte-tests
     - npm ci
-    - npm start &
-    - npm run e2e
+    - npx cypress run --e2e
 # run_tests:
 #   image: node:22.4-bullseye-slim  # Ubuntu-based Node image
 #   before_script:
