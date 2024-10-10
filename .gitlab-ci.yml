@@ -2,6 +2,7 @@ install-dependencies:
   image: node:22.4-alpine
   before_script:
     - apk update
+    - apk add tree
   script:
-    - npm install
-    - node --version
+    - pwd
+    - tree
