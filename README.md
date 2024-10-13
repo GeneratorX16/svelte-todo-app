@@ -24,3 +24,6 @@ I have used cypress for running integration tests on the web app. It consists of
   <li>Tasks that are deleted are not shown in the list.</li>
   <li>Task counter should be updated.</li>
 </ol>
+
+## Intention
+This project was built just to get a hang of how CI/CD would work along with Cypress for running tests whenever changes are made to the codebase.
